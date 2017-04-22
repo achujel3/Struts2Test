@@ -1,15 +1,27 @@
 package org.struts.test.action;
 
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
+import org.apache.commons.lang3.StringUtils;
+import org.struts.test.model.User;
 import org.struts.test.service.LoginService;
 
-public class LoginAction {
+public class LoginAction extends ActionSupport implements ModelDriven{
 
-    private String name;
-    private String password;
+    private User user;
+
+    public void validate() {
+        if (StringUtils.isEmpty(user.getName())) {
+            addFieldError("user.name", "Name cannot be empty!");
+        }
+        if (StringUtils.isEmpty(user.getPassword())) {
+            addFieldError("user.password", "Password cannot be empty!");
+        }
+    }
 
     public String execute() {
         LoginService loginService = new LoginService();
-        if (loginService.isLoginValid(getName(), getPassword())) {
+        if (loginService.isLoginValid(getUser())) {
             return "success";
         } else {
             return "failure";
@@ -17,19 +29,17 @@ public class LoginAction {
 
     }
 
-    public String getName() {
-        return name;
+
+    public User getUser() {
+        return user;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    @Override
+    public Object getModel() {
+        return user;
     }
 }

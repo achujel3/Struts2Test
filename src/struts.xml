@@ -18,6 +18,8 @@
         <action name="loginForm" class="org.struts.test.action.LoginAction">
             <result name="success">/searchForm.jsp</result>
             <result name="failure">/loginForm.jsp</result>
+            <result name="input">/loginForm.jsp</result>
+
         </action>
 
     </package>

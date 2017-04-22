@@ -7,8 +7,8 @@
 <body>
 
 <s:form action="loginForm">
-    <s:textfield label="Login" key="name"/>
-    <s:password label="Password" key="password"/>
+    <s:textfield label="Login" key="user.name"/>
+    <s:password label="Password" key="user.password"/>
     <s:submit/>
 </s:form>
 
