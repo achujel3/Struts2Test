@@ -6,10 +6,18 @@
 
 <struts>
 
-    <package name="default" namespace="/tutorials" extends="struts-default" >
-        <action name="getTutorial" class="org.struts.test.action.TutorialAction" >
+    <package name="default" namespace="/tutorials" extends="struts-default">
+        <action name="getTutorial" class="org.struts.test.action.TutorialAction">
             <result name="success">/success.jsp</result>
             <result name="failure">/error.jsp</result>
+        </action>
+
+    </package>
+
+    <package name="login" namespace="/" extends="struts-default">
+        <action name="loginForm" class="org.struts.test.action.LoginAction">
+            <result name="success">/searchForm.jsp</result>
+            <result name="failure">/loginForm.jsp</result>
         </action>
 
     </package>
