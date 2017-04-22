@@ -6,7 +6,7 @@
 
 <struts>
 
-    <package name="default" extends="struts-default" >
+    <package name="default" namespace="/tutorials" extends="struts-default" >
         <action name="getTutorial" class="org.struts.test.action.TutorialAction" >
             <result name="success">/success.jsp</result>
             <result name="failure">/error.jsp</result>
